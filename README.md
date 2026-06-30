@@ -5,13 +5,21 @@ Public Pi package with sanitized copies of my active Pi extensions and a public-
 ## What is inside
 
 - `extensions/` — sanitized public copies of active local Pi extensions.
-- `docs/extensions-overview.md` — GitHub-friendly overview of each extension and why it exists.
+- `docs/extensions-overview.md` — GitHub-friendly overview of each local extension and why it exists.
+- `docs/rebuild-public-pi-setup.md` — public package stack and rebuild guide, including `context-mode`/`ctx_execute` and other companion packages.
 - `docs/pi-agents-sanitized.md` — public-safe AGENTS-style operating rules snapshot.
 - `docs/install.md` — install and usage notes.
 - `docs/security-notes.md` — what was excluded and how this repo is scanned.
 - `snapshots/pi-setup-snapshot.json` — sanitized setup snapshot from current machine.
+- `snapshots/pi-settings.public-template.json` — public-safe settings template.
 
-## Install in Pi
+## Rebuild setup
+
+Start here if you want the whole public, non-personal setup shape:
+
+[`docs/rebuild-public-pi-setup.md`](docs/rebuild-public-pi-setup.md)
+
+## Install only DomsMagicChest in Pi
 
 ```bash
 pi install git:github.com/Wuschl0815/DomsMagicChest
@@ -53,7 +61,9 @@ Tool added by `session-v2-subagents.ts`:
 session_v2_agents
 ```
 
-Full list: [`docs/extensions-overview.md`](docs/extensions-overview.md)
+Local extension list: [`docs/extensions-overview.md`](docs/extensions-overview.md)
+
+Public package stack: [`docs/rebuild-public-pi-setup.md`](docs/rebuild-public-pi-setup.md)
 
 ## Config highlights
 

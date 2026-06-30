@@ -1,6 +1,12 @@
 # Install
 
-## Install from GitHub
+## Full public rebuild
+
+If you want the full public package stack (`context-mode`, `pi-subagents`, web tools, MCP gateway, LSP, Chrome DevTools, debug tools, and this repo), follow:
+
+[`rebuild-public-pi-setup.md`](rebuild-public-pi-setup.md)
+
+## Install DomsMagicChest from GitHub
 
 ```bash
 pi install git:github.com/Wuschl0815/DomsMagicChest
@@ -26,7 +32,9 @@ Or restart Pi.
 }
 ```
 
-Overview: [`extensions-overview.md`](extensions-overview.md)
+Local extension overview: [`extensions-overview.md`](extensions-overview.md)
+
+Public companion package overview: [`rebuild-public-pi-setup.md`](rebuild-public-pi-setup.md)
 
 ## Optional local config
 

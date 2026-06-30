@@ -8,7 +8,9 @@
     "rawAgentsMdIncluded": false,
     "sanitizedAgentsDoc": "docs/pi-agents-sanitized.md",
     "extensionsOverview": "docs/extensions-overview.md",
-    "privatePathsReplaced": true
+    "privatePathsReplaced": true,
+    "publicRebuildGuide": "docs/rebuild-public-pi-setup.md",
+    "publicSettingsTemplate": "snapshots/pi-settings.public-template.json"
   },
   "settingsSummary": {
     "defaultProvider": "openai-codex",
@@ -35,14 +37,46 @@
     ],
     "subagents": {
       "agentOverrides": {
-        "scout": { "model": "openai-codex/gpt-5.5", "thinking": "low", "maxExecutionTimeMs": 300000 },
-        "planner": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
-        "worker": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
-        "reviewer": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
-        "context-builder": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
-        "researcher": { "model": "openai-codex/gpt-5.5", "thinking": "medium", "maxExecutionTimeMs": 300000 },
-        "delegate": { "model": "openai-codex/gpt-5.5", "thinking": "low", "maxExecutionTimeMs": 300000 },
-        "oracle": { "model": "openai-codex/gpt-5.5", "thinking": "xhigh", "maxExecutionTimeMs": 300000 }
+        "scout": {
+          "model": "openai-codex/gpt-5.5",
+          "thinking": "low",
+          "maxExecutionTimeMs": 300000
+        },
+        "planner": {
+          "model": "openai-codex/gpt-5.5",
+          "thinking": "high",
+          "maxExecutionTimeMs": 300000
+        },
+        "worker": {
+          "model": "openai-codex/gpt-5.5",
+          "thinking": "high",
+          "maxExecutionTimeMs": 300000
+        },
+        "reviewer": {
+          "model": "openai-codex/gpt-5.5",
+          "thinking": "high",
+          "maxExecutionTimeMs": 300000
+        },
+        "context-builder": {
+          "model": "openai-codex/gpt-5.5",
+          "thinking": "high",
+          "maxExecutionTimeMs": 300000
+        },
+        "researcher": {
+          "model": "openai-codex/gpt-5.5",
+          "thinking": "medium",
+          "maxExecutionTimeMs": 300000
+        },
+        "delegate": {
+          "model": "openai-codex/gpt-5.5",
+          "thinking": "low",
+          "maxExecutionTimeMs": 300000
+        },
+        "oracle": {
+          "model": "openai-codex/gpt-5.5",
+          "thinking": "xhigh",
+          "maxExecutionTimeMs": 300000
+        }
       }
     }
   },
@@ -69,24 +103,68 @@
   ],
   "packageManifest": {
     "pi": {
-      "extensions": ["./extensions"]
+      "extensions": [
+        "./extensions"
+      ]
     }
   },
   "extensionCommands": {
-    "workon.ts": ["workon", "workonplan", "workonhardplan", "workonloop", "workon-read", "workon-status", "pr", "ship", "shipmerge", "cleanup", "cleanupeasy"],
-    "session-v2-subagents.ts": ["session-v2-agents"],
-    "auto-retry-inject.ts": ["autoretry"],
-    "hang-recovery.ts": ["hangrecovery"],
-    "alive-status.ts": ["alive"],
-    "auto-terminal-title.ts": ["title"],
-    "codex-quota.ts": ["codexquota"],
-    "featuretree-status.ts": ["feature-status", "feature-start", "feature-use"],
-    "waybar-pi-workspace-status.ts": ["waybar-pi-status"],
-    "email-notify.ts": ["email-start", "email-stop", "email-global-start", "email-global-stop", "email-status", "email-test", "email-poll"]
+    "workon.ts": [
+      "workon",
+      "workonplan",
+      "workonhardplan",
+      "workonloop",
+      "workon-read",
+      "workon-status",
+      "pr",
+      "ship",
+      "shipmerge",
+      "cleanup",
+      "cleanupeasy"
+    ],
+    "session-v2-subagents.ts": [
+      "session-v2-agents"
+    ],
+    "auto-retry-inject.ts": [
+      "autoretry"
+    ],
+    "hang-recovery.ts": [
+      "hangrecovery"
+    ],
+    "alive-status.ts": [
+      "alive"
+    ],
+    "auto-terminal-title.ts": [
+      "title"
+    ],
+    "codex-quota.ts": [
+      "codexquota"
+    ],
+    "featuretree-status.ts": [
+      "feature-status",
+      "feature-start",
+      "feature-use"
+    ],
+    "waybar-pi-workspace-status.ts": [
+      "waybar-pi-status"
+    ],
+    "email-notify.ts": [
+      "email-start",
+      "email-stop",
+      "email-global-start",
+      "email-global-stop",
+      "email-status",
+      "email-test",
+      "email-poll"
+    ]
   },
   "extensionTools": {
-    "workon.ts": ["workonloop_finish_slice"],
-    "session-v2-subagents.ts": ["session_v2_agents"]
+    "workon.ts": [
+      "workonloop_finish_slice"
+    ],
+    "session-v2-subagents.ts": [
+      "session_v2_agents"
+    ]
   },
   "notIncludedRawFiles": [
     "~/.pi/agent/AGENTS.md",
@@ -96,5 +174,87 @@
     "~/.pi/agent/auth*",
     "~/.pi/agent/npm/",
     "~/.pi/agent/git/"
+  ],
+  "publicCompanionPackages": [
+    {
+      "source": "npm:context-mode",
+      "visible": "ctx_execute, ctx_execute_file, ctx_search, ctx_index, ctx_fetch_and_index, ctx_batch_execute, ctx_stats",
+      "purpose": "large-output processing and searchable context"
+    },
+    {
+      "source": "npm:pi-subagents",
+      "visible": "subagent + builtin agents",
+      "purpose": "delegation, chains, async review/worker flows"
+    },
+    {
+      "source": "npm:pi-web-access",
+      "visible": "web_search, fetch_content, get_search_content",
+      "purpose": "web and content research"
+    },
+    {
+      "source": "npm:pi-btw",
+      "visible": "side conversation support",
+      "purpose": "parallel/side conversation workflows"
+    },
+    {
+      "source": "npm:pi-powerline-footer",
+      "visible": "footer/status UI",
+      "purpose": "powerline footer used by status extensions"
+    },
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "visible": "Plannotator review/annotation commands/tools",
+      "purpose": "visual plan/code review"
+    },
+    {
+      "source": "npm:@juicesharp/rpiv-todo",
+      "visible": "todo",
+      "purpose": "structured task tracking"
+    },
+    {
+      "source": "npm:@juicesharp/rpiv-ask-user-question",
+      "visible": "ask_user_question",
+      "purpose": "structured user clarification UI"
+    },
+    {
+      "source": "npm:@juicesharp/rpiv-i18n",
+      "visible": "i18n support",
+      "purpose": "localization support"
+    },
+    {
+      "source": "npm:@juicesharp/rpiv-advisor",
+      "visible": "advisor",
+      "purpose": "stronger-model guidance checkpoint"
+    },
+    {
+      "source": "npm:@juicesharp/rpiv-voice",
+      "visible": "voice support",
+      "purpose": "voice integration when configured"
+    },
+    {
+      "source": "npm:pi-mcp-adapter",
+      "visible": "mcp",
+      "purpose": "MCP gateway"
+    },
+    {
+      "source": "npm:@ff-labs/pi-fff",
+      "visible": "fffind, ffgrep",
+      "purpose": "fast path/content search"
+    },
+    {
+      "source": "npm:pi-langsrv",
+      "visible": "lsp_* tools",
+      "purpose": "language server code intelligence"
+    },
+    {
+      "source": "npm:@narumitw/pi-chrome-devtools",
+      "visible": "chrome_devtools_* tools",
+      "purpose": "Chrome DevTools Protocol browser control"
+    },
+    {
+      "source": "npm:pi-debug",
+      "visible": "debug_* tools",
+      "purpose": "DAP-style debugging"
+    }
   ]
 }

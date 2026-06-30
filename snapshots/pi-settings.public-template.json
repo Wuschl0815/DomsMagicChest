@@ -1,0 +1,37 @@
+{
+  "_note": "Public-safe template. Copy selectively to ~/.pi/agent/settings.json. Auth, MCP config, sessions, secrets, and personal paths are intentionally omitted.",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:context-mode",
+    "npm:pi-subagents",
+    "npm:pi-web-access",
+    "npm:pi-btw",
+    "npm:pi-powerline-footer",
+    "npm:@plannotator/pi-extension",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-i18n",
+    "npm:@juicesharp/rpiv-advisor",
+    "npm:@juicesharp/rpiv-voice",
+    "npm:pi-mcp-adapter",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-langsrv",
+    "npm:@narumitw/pi-chrome-devtools",
+    "npm:pi-debug",
+    "git:github.com/Wuschl0815/DomsMagicChest"
+  ],
+  "subagents": {
+    "agentOverrides": {
+      "scout": { "model": "openai-codex/gpt-5.5", "thinking": "low", "maxExecutionTimeMs": 300000 },
+      "planner": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
+      "worker": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
+      "reviewer": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
+      "context-builder": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
+      "researcher": { "model": "openai-codex/gpt-5.5", "thinking": "medium", "maxExecutionTimeMs": 300000 },
+      "delegate": { "model": "openai-codex/gpt-5.5", "thinking": "low", "maxExecutionTimeMs": 300000 },
+      "oracle": { "model": "openai-codex/gpt-5.5", "thinking": "xhigh", "maxExecutionTimeMs": 300000 }
+    }
+  }
+}

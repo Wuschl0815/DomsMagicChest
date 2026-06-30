@@ -10,6 +10,8 @@ Public snapshot rules used for this repo.
 - Sanitized model/subagent override shape.
 - Public-safe AGENTS-style rules: `docs/pi-agents-sanitized.md`.
 - GitHub overview docs: `docs/extensions-overview.md`.
+- Public rebuild guide: `docs/rebuild-public-pi-setup.md`.
+- Public settings template: `snapshots/pi-settings.public-template.json`.
 
 ## Excluded
 

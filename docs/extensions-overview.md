@@ -2,6 +2,8 @@
 
 Public-safe snapshot of active local Pi extensions in this package.
 
+This page covers only extensions shipped by DomsMagicChest. Public companion packages such as `context-mode` (`ctx_execute`, `ctx_search`, ...), `pi-subagents`, `pi-web-access`, MCP, LSP, Chrome DevTools, and debug tooling are listed in [`rebuild-public-pi-setup.md`](rebuild-public-pi-setup.md).
+
 | Extension | Commands/tools | Purpose |
 |---|---|---|
 | `workon.ts` | `/workon`, `/workonplan`, `/workonhardplan`, `/workonloop`, `/workon-read`, `/workon-status`, `/pr`, `/ship`, `/shipmerge`, `/cleanup`, `/cleanupeasy`; tool `workonloop_finish_slice` | Feature-worktree workflow: create isolated worktrees, write handoff docs/env files, run plan/implementation loops, open/update PRs, ship/merge, and cleanup local runtime resources. |
