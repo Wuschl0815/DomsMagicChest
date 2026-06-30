@@ -5,6 +5,9 @@
     "rawSecretsIncluded": false,
     "rawSessionsIncluded": false,
     "rawMcpConfigIncluded": false,
+    "rawAgentsMdIncluded": false,
+    "sanitizedAgentsDoc": "docs/pi-agents-sanitized.md",
+    "extensionsOverview": "docs/extensions-overview.md",
     "privatePathsReplaced": true
   },
   "settingsSummary": {
@@ -43,19 +46,19 @@
       }
     }
   },
-  "globalExtensions": [
-    "omarchy-system-theme.ts",
+  "globalExtensionsSnapshot": [
     "alive-status.ts",
+    "auto-retry-inject.ts",
+    "auto-terminal-title.ts",
     "codex-quota.ts",
     "email-notify.ts",
-    "auto-terminal-title.ts",
     "featuretree-status.ts",
-    "waybar-pi-workspace-status.ts",
-    "workon.ts",
+    "hang-recovery.ts",
+    "omarchy-system-theme.ts",
     "session-v2-subagents.ts",
-    "subagent/",
-    "auto-retry-inject.ts",
-    "hang-recovery.ts"
+    "subagent/config.json",
+    "waybar-pi-workspace-status.ts",
+    "workon.ts"
   ],
   "globalSkills": [
     "omarchy",
@@ -64,20 +67,34 @@
   "globalPrompts": [
     "slice.md"
   ],
-  "workonCommands": [
-    "workon",
-    "workonplan",
-    "workonhardplan",
-    "workonloop",
-    "workon-read",
-    "workon-status",
-    "pr",
-    "ship",
-    "shipmerge",
-    "cleanup",
-    "cleanupeasy"
-  ],
-  "workonTools": [
-    "workonloop_finish_slice"
+  "packageManifest": {
+    "pi": {
+      "extensions": ["./extensions"]
+    }
+  },
+  "extensionCommands": {
+    "workon.ts": ["workon", "workonplan", "workonhardplan", "workonloop", "workon-read", "workon-status", "pr", "ship", "shipmerge", "cleanup", "cleanupeasy"],
+    "session-v2-subagents.ts": ["session-v2-agents"],
+    "auto-retry-inject.ts": ["autoretry"],
+    "hang-recovery.ts": ["hangrecovery"],
+    "alive-status.ts": ["alive"],
+    "auto-terminal-title.ts": ["title"],
+    "codex-quota.ts": ["codexquota"],
+    "featuretree-status.ts": ["feature-status", "feature-start", "feature-use"],
+    "waybar-pi-workspace-status.ts": ["waybar-pi-status"],
+    "email-notify.ts": ["email-start", "email-stop", "email-global-start", "email-global-stop", "email-status", "email-test", "email-poll"]
+  },
+  "extensionTools": {
+    "workon.ts": ["workonloop_finish_slice"],
+    "session-v2-subagents.ts": ["session_v2_agents"]
+  },
+  "notIncludedRawFiles": [
+    "~/.pi/agent/AGENTS.md",
+    "~/.pi/agent/settings.json",
+    "~/.pi/agent/mcp.json",
+    "~/.pi/agent/sessions/",
+    "~/.pi/agent/auth*",
+    "~/.pi/agent/npm/",
+    "~/.pi/agent/git/"
   ]
 }

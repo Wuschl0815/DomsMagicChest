@@ -12,10 +12,11 @@
   ],
   "pi": {
     "extensions": [
-      "./extensions/workon.ts"
+      "./extensions"
     ]
   },
   "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
     "@earendil-works/pi-coding-agent": "*"
   }
 }
