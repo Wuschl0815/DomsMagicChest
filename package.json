@@ -1,0 +1,21 @@
+{
+  "name": "doms-magic-chest",
+  "version": "0.1.0",
+  "description": "Dom's public Pi package: workon workflow extension plus sanitized Pi setup snapshot.",
+  "private": false,
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "coding-agent",
+    "worktree"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions/workon.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "capturedAt": "2026-06-30",
+  "piVersion": "0.80.2",
+  "sanitization": {
+    "rawSecretsIncluded": false,
+    "rawSessionsIncluded": false,
+    "rawMcpConfigIncluded": false,
+    "privatePathsReplaced": true
+  },
+  "settingsSummary": {
+    "defaultProvider": "openai-codex",
+    "defaultModel": "gpt-5.5",
+    "packages": [
+      "npm:context-mode",
+      "npm:pi-subagents",
+      "npm:pi-web-access",
+      "npm:pi-btw",
+      "<DEV_ROOT>/DomSetupSystemsInfo/packages/pi-caveman-upstream",
+      "<DEV_ROOT>/DomSetupSystemsInfo",
+      "npm:pi-powerline-footer",
+      "npm:@plannotator/pi-extension",
+      "npm:@juicesharp/rpiv-todo",
+      "npm:@juicesharp/rpiv-ask-user-question",
+      "npm:@juicesharp/rpiv-i18n",
+      "npm:@juicesharp/rpiv-advisor",
+      "npm:@juicesharp/rpiv-voice",
+      "npm:pi-mcp-adapter",
+      "npm:@ff-labs/pi-fff",
+      "npm:pi-langsrv",
+      "npm:@narumitw/pi-chrome-devtools",
+      "npm:pi-debug"
+    ],
+    "subagents": {
+      "agentOverrides": {
+        "scout": { "model": "openai-codex/gpt-5.5", "thinking": "low", "maxExecutionTimeMs": 300000 },
+        "planner": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
+        "worker": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
+        "reviewer": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
+        "context-builder": { "model": "openai-codex/gpt-5.5", "thinking": "high", "maxExecutionTimeMs": 300000 },
+        "researcher": { "model": "openai-codex/gpt-5.5", "thinking": "medium", "maxExecutionTimeMs": 300000 },
+        "delegate": { "model": "openai-codex/gpt-5.5", "thinking": "low", "maxExecutionTimeMs": 300000 },
+        "oracle": { "model": "openai-codex/gpt-5.5", "thinking": "xhigh", "maxExecutionTimeMs": 300000 }
+      }
+    }
+  },
+  "globalExtensions": [
+    "omarchy-system-theme.ts",
+    "alive-status.ts",
+    "codex-quota.ts",
+    "email-notify.ts",
+    "auto-terminal-title.ts",
+    "featuretree-status.ts",
+    "waybar-pi-workspace-status.ts",
+    "workon.ts",
+    "session-v2-subagents.ts",
+    "subagent/",
+    "auto-retry-inject.ts",
+    "hang-recovery.ts"
+  ],
+  "globalSkills": [
+    "omarchy",
+    "git-lost-overview/"
+  ],
+  "globalPrompts": [
+    "slice.md"
+  ],
+  "workonCommands": [
+    "workon",
+    "workonplan",
+    "workonhardplan",
+    "workonloop",
+    "workon-read",
+    "workon-status",
+    "pr",
+    "ship",
+    "shipmerge",
+    "cleanup",
+    "cleanupeasy"
+  ],
+  "workonTools": [
+    "workonloop_finish_slice"
+  ]
+}
